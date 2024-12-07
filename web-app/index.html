@@ -6,12 +6,12 @@
 </head>
 <body>
     <h1>Hello, World!</h1>
-    <form method="GET">
-        <input type="text" name="message" placeholder="Enter your message">
-        <button type="submit">Submit</button>
+    <form method="POST">
+        <button type="submit" name="action" value="Deploy Git">Deploy Git</button>
+        <button type="submit" name="action" value="Deploy Webtop">Deploy Webtop</button>
     </form>
     {{if .Message}}
-    <p>You entered: {{.Message}}</p>
+    <p>{{.Message}}</p>
     {{end}}
 </body>
 </html>

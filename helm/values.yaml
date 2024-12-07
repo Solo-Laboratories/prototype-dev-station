@@ -1,14 +1,14 @@
 image:
-  repository: nginx
-  tag: "latest"
-  pullPolicy: IfNotPresent
+  repository: sololaboratories/dev-station
+  tag: prototype
+  pullPolicy: Always
 
 container:
   name: web-container
   port: 8080
 
 pvc:
-  size: 124Mi
+  size: 1Gi
 
 deployment:
   name: web-deployment

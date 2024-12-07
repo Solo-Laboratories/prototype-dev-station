@@ -7,7 +7,12 @@ build_docker() {
 
 # Function to deploy Helm chart
 deploy_helm() {
-    helm update --install dev-station helm -n dev-station --atomic
+    helm upgrade --install dev-station helm -n dev-station --atomic
+}
+
+# Function to remove the helm chart deployment
+remove_helm(){
+    helm uninstall dev-station -n dev-station
 }
 
 # Function to template Helm chart
@@ -54,6 +59,9 @@ case $1 in
     deploy-helm)
         deploy_helm
         ;;
+    remove-helm)
+        remove_helm
+        ;;
     template-helm)
         template_helm
         ;;
@@ -70,6 +78,6 @@ case $1 in
         push_docker $2
         ;;
     *)
-        echo "Usage: $0 {build-docker|deploy-helm|template-helm|build-app|run-app|clean-app|push-docker} [args...]"
+        echo "Usage: $0 {build-docker|deploy-helm|remove-helm|template-helm|build-app|run-app|clean-app|push-docker} [args...]"
         ;;
 esac

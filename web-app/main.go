@@ -24,7 +24,6 @@ func main() {
 				helpers.DeployWebtop()
 				message = "Deploy Webtop button pressed"
 			}
-			fmt.Println(message)
 		}
 		data := PageData{
 			Message: message,

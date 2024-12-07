@@ -7,7 +7,15 @@ Web Application targeting Developers with a WebUI that deploys Dev tools to a ku
 - Git Repository, Coder like (container with VS in it for now), File explorer, Webtop
 
 ## MVP
-- Web UI
-- Git Repository button
-- Webtop Button
-- Persistence volume for home data
+- [x] Container file
+- [x] Helm Chart
+- [x] Golang application
+- [x] Web UI
+- [ ] Logic to deploy gitea
+- [ ] Return a clickable link to the deploy Gitea instance
+- [ ] Git Repository button
+- [ ] Logic to deploy Webtop instance
+- [ ] Return a clickable link to the deployed webtop instance
+- [ ] Webtop Button
+- [ ] Persistence volume for home data
+- [ ] Make sure the user's information stays around

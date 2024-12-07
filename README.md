@@ -11,7 +11,7 @@ Web Application targeting Developers with a WebUI that deploys Dev tools to a ku
 - [x] Helm Chart
 - [x] Golang application
 - [x] Web UI
-- [ ] Helm chart updated to use Service Account
+- [x] Helm chart updated to use Service Account
 - [ ] Logic to deploy gitea
 - [ ] Return a clickable link to the deploy Gitea instance
 - [ ] Git Repository button

@@ -16,6 +16,8 @@ FROM scratch
 # Copy the built application from the first stage
 COPY --from=build-stage /app/dev-station /dev-station
 COPY --from=build-stage /app/index.html /
+COPY --from=build-stage /app/values-files /values-files
+COPY --from=build-stage /app/manifest-files /manifest-files
 
 # Set the entrypoint to the executable
 ENTRYPOINT ["/dev-station"]

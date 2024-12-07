@@ -12,3 +12,8 @@ pvc:
 
 deployment:
   name: web-deployment
+
+ingress:
+  host: dev-station.cluster.sololab.one
+  serivce: 
+    name: web-deployment-service

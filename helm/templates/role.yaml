@@ -5,9 +5,9 @@ metadata:
   namespace: {{ .Release.Namespace }}
 rules:
   # select your needed api groups
-- apiGroups: ["", "apps", batch", "networking.k8s.io", "networking", "extensions"]
+- apiGroups: ["", "apps", batch", "networking.k8s.io", "networking", "extensions", "traefik.io"]
   # select your needed resources
   # don't forget the according apiGroup above
-  resources: [ "deployments", "pods", "replicasets", "services", "configmaps", "persistentvolumeclaims", "secrets"]
+  resources: [ "deployments", "pods", "replicasets", "services", "configmaps", "persistentvolumeclaims", "secrets", "IngressRoute"]
   # select your needed permissions (keep to a minimum)
   verbs: [ "create", "get", "list", "delete", "watch", "update", "patch"]

@@ -13,6 +13,7 @@ spec:
       labels:
         app: {{ .Values.deployment.name }}
     spec:
+      serviceAccountName: {{ .Values.serviceAccount.name }}
       containers:
         - name: {{ .Values.container.name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}

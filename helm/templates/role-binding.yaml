@@ -9,5 +9,5 @@ roleRef:
   name: deployer-role
 subjects:
   - kind: ServiceAccount
-    name: deployer
+    name: {{ .Values.serviceAccount.name }}
     namespace: {{ .Release.Namespace }}

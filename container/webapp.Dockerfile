@@ -14,6 +14,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o dev-station .
 FROM scratch
 
 # Copy the built application from the first stage
+COPY --from=build-stage /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=build-stage /app/dev-station /dev-station
 COPY --from=build-stage /app/index.html /
 COPY --from=build-stage /app/values-files /values-files

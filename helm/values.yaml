@@ -15,5 +15,5 @@ deployment:
 
 ingress:
   host: dev-station.cluster.sololab.one
-  serivce: 
+  service: 
     name: web-deployment-service

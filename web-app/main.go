@@ -19,8 +19,9 @@ func main() {
 			action := r.FormValue("action")
 			if action == "Deploy Git" {
 				//returnUrl := helpers.DeployGit()
-				helpers.DeployManifestFile("manifest-files/gitea.middleware.yaml")
-				helpers.DeployManifestFile("manifest-files/gitea.ingress-route.yaml")
+				client := helpers.NewKubeClient()
+				client.Apply("manifest-files/gitea.middleware.yaml")
+				client.Apply("manifest-files/gitea.ingress-route.yaml")
 				//message = "Deploy Git button pressed. Visit: " + returnUrl
 			} else if action == "Deploy Webtop" {
 				helpers.DeployWebtop()

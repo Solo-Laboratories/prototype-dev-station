@@ -39,13 +39,21 @@ func DeployGit() string {
 		Name: "gitea",
 		URL:  "https://dl.gitea.io/charts",
 	}
-	chartRepo, err := repo.NewChartRepository(&repoEntry, getter.All(cli.New()))
+    cli := cli.New()
+	chartRepo, err := repo.NewChartRepository(&repoEntry, getter.All(cli))
 	if err != nil {
 		log.Fatalf("Error creating chart repository: %v", err)
 	}
 	if _, err := chartRepo.DownloadIndexFile(); err != nil {
 		log.Fatalf("Error downloading index file: %v", err)
 	}
+
+    // Update the Helm repositories 
+    repoFile := repo.NewFile() 
+    repoFile.Update(&repoEntry) 
+    if err := repoFile.WriteFile(cli.RepositoryConfig, 0644); err != nil { 
+        log.Fatalf("Error writing repo file: %v", err) 
+    }
 
 	// Install Helm chart
 	install := action.NewInstall(actionConfig)
@@ -54,7 +62,9 @@ func DeployGit() string {
 	install.Atomic = true
 	install.Wait = true
 	install.Version = "10.6.0"
-	chartPath, err := install.LocateChart("gitea/gitea", cli.New())
+	chartPath, err := install.LocateChart("gitea/gitea", cli)
+
+    log.Println("Chart Path: " + chartPath)
 
 	// Load values file
 	valuesFile := "values-files/gitea.values.yaml"

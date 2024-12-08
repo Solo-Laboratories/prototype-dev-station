@@ -60,7 +60,6 @@ func DeployGit() string {
 	install.ReleaseName = "gitea"
 	install.Namespace = "dev-station"
 	install.Atomic = true
-	install.Wait = true
 	install.Version = "10.6.0"
 	chartPath, err := install.LocateChart("gitea/gitea", cli)
 

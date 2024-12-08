@@ -2,8 +2,8 @@ package main
 
 import (
 	"html/template"
+	"log"
 	"net/http"
-    "log"
 
 	"github.com/markbrown87/prototype-dev-station/helpers"
 )
@@ -14,7 +14,7 @@ type PageData struct {
 
 func googleRedirect(w http.ResponseWriter, r *http.Request) {
 	log.Println("Redirecting to google.com...")
-    http.Redirect(w, r, "https://www.google.com", http.StatusFound)
+	http.Redirect(w, r, "https://www.google.com", http.StatusFound)
 }
 
 func main() {
@@ -25,6 +25,7 @@ func main() {
 			action := r.FormValue("action")
 			if action == "Deploy Git" {
 				returnUrl := helpers.DeployGit()
+				helpers.DeployManifestFile("manifest-files/gitea.ingress-route.yaml")
 				message = "Deploy Git button pressed. Visit: " + returnUrl
 			} else if action == "Deploy Webtop" {
 				helpers.DeployWebtop()
@@ -39,5 +40,5 @@ func main() {
 	})
 
 	log.Println("Starting server on :8080")
-    log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

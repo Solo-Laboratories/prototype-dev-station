@@ -25,6 +25,8 @@ build_app() {
     cd web-app
     CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o build/dev-station
     cp index.html build/
+    cp -r manifest-files build/
+    cp -r values-files build/
     cd ..
 }
 

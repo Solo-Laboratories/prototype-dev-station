@@ -8,7 +8,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`dev-station.cluster.sololab.one/gitea`)
+      match: Host(`dev-station.cluster.sololab.one`) && PathPrefix(`/gitea`)
       services:
         - kind: Service
           name: gitea-service

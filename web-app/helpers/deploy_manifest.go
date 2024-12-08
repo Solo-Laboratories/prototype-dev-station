@@ -56,7 +56,7 @@ func DeployManifestFile(file string) {
 		return err
 	})
 	if retryErr != nil {
-		log.Fatalf("Failed to apply manifest file: %v", err)
+		log.Fatalf("Failed to apply manifest file: %v", retryErr)
 	}
 
 	log.Println("Manifest applied successfully")

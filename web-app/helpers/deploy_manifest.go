@@ -48,6 +48,7 @@ func DeployManifestFile(file string) {
 	namespace := obj.GetNamespace()
 	//name := obj.GetName()
 
+	log.Println(gvr)
 	retryErr := retry.RetryOnConflict(retry.DefaultRetry, func() error {
 		_, err := dynamicClient.Resource(gvr).Namespace(namespace).Create(context.TODO(), &obj, metav1.CreateOptions{})
 		if errors.IsAlreadyExists(err) {

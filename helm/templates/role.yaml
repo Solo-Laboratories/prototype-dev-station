@@ -8,6 +8,6 @@ rules:
 - apiGroups: ["", "apps", batch", "networking.k8s.io", "networking", "extensions", "traefik.io", "policy"]
   # select your needed resources
   # don't forget the according apiGroup above
-  resources: [ "deployments", "pods", "replicasets", "services", "configmaps", "persistentvolumeclaims", "secrets", "IngressRoute", "secrets", "networkpolicies", "poddisruptionbudgets", "serviceaccounts", "statefulsets"]
+  resources: ["deployments", "pods", "replicasets", "services", "configmaps", "persistentvolumeclaims", "secrets", "ingressroutes", "middlewares", "secrets", "networkpolicies", "poddisruptionbudgets", "serviceaccounts", "statefulsets"]
   # select your needed permissions (keep to a minimum)
-  verbs: [ "create", "get", "list", "delete", "watch", "update", "patch"]
+  verbs: ["create", "get", "list", "delete", "watch", "update", "patch"]

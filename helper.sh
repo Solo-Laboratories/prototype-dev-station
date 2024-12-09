@@ -13,6 +13,9 @@ deploy_helm() {
 # Function to remove the helm chart deployment
 remove_helm(){
     helm uninstall dev-station -n dev-station
+    helm uninstall gitea -n dev-station
+    kubectl delete -f web-app/manifest-files/gitea.ingress-route.yaml
+    kubectl delete -f web-app/manifest-files/gitea.middleware.yaml
 }
 
 # Function to template Helm chart

@@ -12,13 +12,13 @@ Web Application targeting Developers with a WebUI that deploys Dev tools to a ku
 - [x] Golang application
 - [x] Web UI
 - [x] Helm chart updated to use Service Account
-- [ ] Logic to deploy gitea
-- [ ] Return a clickable link to the deploy Gitea instance
-- [ ] Git Repository button
+- [x] Logic to deploy gitea
+- [x] Return a clickable link to the deploy Gitea instance
+- [x] Git Repository button
 - [ ] Logic to deploy Webtop instance
 - [ ] Return a clickable link to the deployed webtop instance
 - [ ] Webtop Button
-- [ ] Persistence volume for home data
+- [x] Persistence volume for home data
 - [ ] Make sure the user's information stays around
 
 ## Usage
